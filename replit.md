@@ -14,3 +14,4 @@ The app starts with `node index.js` and serves on port 5000.
 
 ## Recent Changes
 - 2026-02-24: Initial setup with Express server and static HTML page
+- 2026-02-24: Added secure download script for Casper-ultra repository with hidden path support
