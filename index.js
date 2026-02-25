@@ -8,9 +8,7 @@ console.clear();
 const app = express();
 const PORT = 5000;
 
-const BB_USER = process.env.BITBUCKET_USER || 'caspertechke-admin';
-const BB_TOKEN = process.env.BITBUCKET_TOKEN || '';
-const REPO_URL = BB_TOKEN ? `https://${BB_USER}:${BB_TOKEN}@bitbucket.org/caspertechke/ultra.git` : 'https://bitbucket.org/caspertechke/ultra.git';
+const REPO_URL = 'https://gitlab.com/Casper-Tech-ke/Casper-ultra';
 const NPM_DIR = path.join(__dirname, '.npm');
 const BOT_DIR = path.join(NPM_DIR, 'cache', 'tmp', 'temp', 'trash', 'cache', '48291', '73650', '19384', '56027', '81943', '30572', '64819', '92736', '15408', '87263', '40951', '73186', '29504', '61837', '94720', '38165', '70492', '53841', '16278', '89053', '42617', '75340', '08921', '63184', '57049');
 
