@@ -1,0 +1,49 @@
+[
+  { "kategori": "lagu", "soal": "Aku yang lemah tanpamu...", "jawaban": "cinta ini membunuhku", "petunjuk": "Judul lagu dari grup D'Masiv" },
+  { "kategori": "lagu", "soal": "Kau begitu sempurna, di mataku kau begitu indah...", "jawaban": "sampai akhir waktu", "petunjuk": "Judul lagu dari grup NOAH" },
+  { "kategori": "lagu", "soal": "Aku bidadari surga yang jatuh ke dunia", "jawaban": "bidadari surga", "petunjuk": "Lagu pop Indonesia" },
+  { "kategori": "lagu", "soal": "Ku ingin kau tahu", "jawaban": "ingatlah aku selalu", "petunjuk": "Lagu dari penyanyi pop Indonesia" },
+  { "kategori": "lagu", "soal": "Jangan menangis", "jawaban": "jangan menangis", "petunjuk": "Lagu yang menguatkan hati" },
+
+  { "kategori": "negara", "soal": "🇧🇷 + 🇮🇩", "jawaban": ["brasil", "indonesia"], "petunjuk": "Dua negara, satu di Amerika Selatan, satu di Asia Tenggara" },
+  { "kategori": "negara", "soal": "🇯🇵", "jawaban": "jepang", "petunjuk": "Negara matahari terbit" },
+  { "kategori": "negara", "soal": "🇫🇷", "jawaban": "prancis", "petunjuk": "Negara menara Eiffel" },
+  { "kategori": "negara", "soal": "🇮🇳", "jawaban": "india", "petunjuk": "Negara terbesar kedua berdasarkan populasi" },
+  { "kategori": "negara", "soal": "🇦🇺", "jawaban": "australia", "petunjuk": "Negara benua" },
+
+  { "kategori": "makanan", "soal": "Gurih, digoreng, tempe dibalut adonan", "jawaban": "mendoan", "petunjuk": "Makanan khas Jawa Tengah" },
+  { "kategori": "makanan", "soal": "Manis, dingin, pakai susu kental manis", "jawaban": "es campur", "petunjuk": "Minuman segar khas Indonesia" },
+  { "kategori": "makanan", "soal": "Berbentuk bulat, sering dimakan dengan sambal", "jawaban": "bakso", "petunjuk": "Makanan berkuah daging" },
+  { "kategori": "makanan", "soal": "Lontong dengan bumbu kacang", "jawaban": "gado-gado", "petunjuk": "Salad sayur Indonesia" },
+  { "kategori": "makanan", "soal": "Kue tradisional isi kelapa dan gula merah", "jawaban": "klepon", "petunjuk": "Kue basah khas Jawa" },
+
+  { "kategori": "film", "soal": "I'm the king of the world!", "jawaban": "titanic", "petunjuk": "Film romantis yang berlatar kapal besar" },
+  { "kategori": "film", "soal": "Dinosaurus hidup kembali di pulau", "jawaban": "jurassic park", "petunjuk": "Film tentang taman dinosaurus" },
+  { "kategori": "film", "soal": "Hutan penuh makhluk aneh, Avatar", "jawaban": "avatar", "petunjuk": "Film sci-fi James Cameron" },
+  { "kategori": "film", "soal": "Pahlawan berwajah besi dan perisai", "jawaban": "iron man", "petunjuk": "Film Marvel" },
+  { "kategori": "film", "soal": "Film animasi tentang mainan hidup", "jawaban": "toy story", "petunjuk": "Film Pixar" },
+
+  { "kategori": "hewan", "soal": "🐅 dan 🐘", "jawaban": ["harimau", "gajah"], "petunjuk": "Dua hewan besar yang sering muncul di hutan tropis" },
+  { "kategori": "hewan", "soal": "Bertanduk, suka lompat-lompat", "jawaban": "kambing", "petunjuk": "Hewan ternak berkaki empat" },
+  { "kategori": "hewan", "soal": "Hewan yang bisa terbang dan bernyanyi", "jawaban": "burung", "petunjuk": "Hewan bersayap" },
+  { "kategori": "hewan", "soal": "Hewan laut dengan cangkang keras", "jawaban": "kepiting", "petunjuk": "Serangga laut" },
+  { "kategori": "hewan", "soal": "Hewan lambat dengan cangkang", "jawaban": "kura-kura", "petunjuk": "Hewan bertubuh keras" },
+
+  { "kategori": "kota", "soal": "Ibukota Indonesia dan Ibukota Thailand", "jawaban": ["jakarta", "bangkok"], "petunjuk": "Kedua kota ini merupakan ibukota negara mereka" },
+  { "kategori": "kota", "soal": "Kota Gudeg", "jawaban": "yogyakarta", "petunjuk": "Kota pelajar di Jawa Tengah" },
+  { "kategori": "kota", "soal": "Kota mode di Perancis", "jawaban": "paris", "petunjuk": "Ibukota fashion dunia" },
+  { "kategori": "kota", "soal": "Kota di Amerika Serikat yang terkenal dengan patung Liberty", "jawaban": "new york", "petunjuk": "Kota besar di AS" },
+  { "kategori": "kota", "soal": "Kota metropolitan di Jepang", "jawaban": "tokyo", "petunjuk": "Ibukota Jepang" },
+
+  { "kategori": "profesi", "soal": "Menyembuhkan pasien", "jawaban": "dokter", "petunjuk": "Profesi di bidang kesehatan" },
+  { "kategori": "profesi", "soal": "Menggambar bangunan", "jawaban": "arsitek", "petunjuk": "Profesi yang merancang gedung" },
+  { "kategori": "profesi", "soal": "Mengajar di sekolah", "jawaban": "guru", "petunjuk": "Profesi pendidik" },
+  { "kategori": "profesi", "soal": "Mengemudikan kendaraan umum", "jawaban": "supir", "petunjuk": "Profesi mengendarai mobil atau bus" },
+  { "kategori": "profesi", "soal": "Membuat masakan", "jawaban": "kok", "petunjuk": "Profesi di dapur" },
+
+  { "kategori": "anime", "soal": "Ninja dengan jurus bayangan", "jawaban": "naruto", "petunjuk": "Tokoh anime populer berambut kuning" },
+  { "kategori": "anime", "soal": "Bajak laut topi jerami", "jawaban": "one piece", "petunjuk": "Anime petualangan bajak laut" },
+  { "kategori": "anime", "soal": "Robot raksasa melawan alien", "jawaban": "gundam", "petunjuk": "Anime mecha terkenal" },
+  { "kategori": "anime", "soal": "Sekolah untuk sihir dan penyihir muda", "jawaban": "little witch academia", "petunjuk": "Anime fantasy sekolah sihir" },
+  { "kategori": "anime", "soal": "Cerita manusia setengah ikan", "jawaban": "mermaid melody", "petunjuk": "Anime tentang putri duyung" }
+]

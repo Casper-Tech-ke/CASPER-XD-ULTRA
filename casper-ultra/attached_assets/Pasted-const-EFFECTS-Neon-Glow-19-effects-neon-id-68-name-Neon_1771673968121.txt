@@ -1,0 +1,298 @@
+const EFFECTS = {
+    // Neon & Glow (19 effects)
+    'neon': { id: 68, name: 'Neon Text Effect' },
+    'neon2': { id: 69, name: 'Colorful Glowing Text Effect' },
+    'neon3': { id: 78, name: 'Neon Text Effect Online' },
+    'neon4': { id: 171, name: 'Neon Text Effect' },
+    'neon5': { id: 200, name: 'Neon Text Effect Light' },
+    'blueneon': { id: 117, name: 'Blue Neon Text Effect' },
+    'greenneon': { id: 395, name: 'Green Neon Text Effect' },
+    'galaxy': { id: 521, name: 'Making Neon Light Text Effect With Galaxy Style' },
+    'retroneon': { id: 538, name: 'Free Retro Neon Text Effect Online' },
+    'glowneon': { id: 706, name: 'Create Glowing Text Effects Online' },
+    'blackpinkneon': { id: 710, name: 'Create A Blackpink Neon Logo Text Effect Online' },
+    'neonglitch': { id: 768, name: 'Create Impressive Neon Glitch Text Effects Online' },
+    'hacker': { id: 677, name: 'Create Anonymous Hacker Avatars Cyan Neon' },
+    'devil': { id: 683, name: 'Neon Devil Wings Text Effect Online' },
+    'cyan': { id: 74, name: 'Advanced Glow Effects' },
+    'lightgreen': { id: 429, name: 'Create Light Effects Green Neon Online' },
+    'bluelogo': { id: 507, name: 'Create Blue Neon Logo Online' },
+    'multicolor': { id: 591, name: 'Create Multicolored Neon Light Signatures' },
+    'colorful': { id: 797, name: 'Create Colorful Neon Light Text Effects Online' },
+
+    // 3D Effects (40 effects)
+    '3dwood': { id: 59, name: 'Wooden 3D Text Effect' },
+    '3dcube': { id: 88, name: '3D Cubic Text Effect Online' },
+    '3dwater': { id: 126, name: 'Water 3D Text Effect Online' },
+    '3dgraffiti': { id: 208, name: 'Text Graffiti 3D' },
+    '3dsilver': { id: 273, name: '3D Silver Text Effect' },
+    '3dmetal': { id: 277, name: 'Text Metal 3D' },
+    '3druby': { id: 281, name: '3D Ruby Stone Text' },
+    '3dhologram': { id: 441, name: 'Free Create A 3D Hologram Text Effect' },
+    '3dstone': { id: 508, name: 'Create 3D Stone Text Effect Online' },
+    '3dsand': { id: 580, name: 'Realistic 3D Sand Text Effect Online' },
+    '3dgradient': { id: 600, name: 'Create 3D Gradient Text Effect Online' },
+    '3dsnow': { id: 621, name: 'Create A Snow 3D Text Effect Free Online' },
+    '3dcrack': { id: 704, name: 'Create 3D Crack Text Effect Online' },
+    '3dcomic': { id: 817, name: 'Create Online 3D Comic Style Text Effects' },
+    '3dballoon': { id: 803, name: 'Beautiful 3D Foil Balloon Effects For Holidays And Birthday' },
+    '3dwood2': { id: 104, name: '3D Wooden Text Effects Online' },
+    '3dwater2': { id: 143, name: 'Text 3D Cuong Thi' },
+    '3dtext': { id: 172, name: '3D Text Effect' },
+    '3dmetal2': { id: 374, name: 'Create Logo 3D Metal Online' },
+    '3dpig': { id: 397, name: 'Lovely Cute 3D Text Effect With Pig' },
+    '3davengers': { id: 427, name: 'Create Logo 3D Style Avengers Online' },
+    '3dgradient2': { id: 476, name: 'Create Gradient Logo 3D Online' },
+    '3dspace': { id: 559, name: 'Latest Space 3D Text Effect Online' },
+    '3dlight': { id: 608, name: 'Create Realistic Vintage 3D Light Bulb' },
+    '3dpaper': { id: 658, name: 'Multicolor 3D Paper Cut Style Text Effect' },
+    '3dunderwater': { id: 682, name: '3D Underwater Text Effect Online' },
+    '3dshiny': { id: 685, name: 'Create A 3D Shiny Metallic Text Effect Online' },
+    '3dgradient3': { id: 686, name: 'Create 3D Gradient Text Effect Online' },
+    '3dbeach': { id: 688, name: 'Create 3D Text Effect On The Beach Online' },
+    '3dwood3': { id: 705, name: 'Create 3D Wood Text Effects Online Free' },
+    '3dflagusa': { id: 725, name: 'Free Online American Flag 3D Text Effect Generator' },
+    '3dchristmas': { id: 727, name: 'Create Sparkles 3D Christmas Text Effect Online' },
+    '3dflagnigeria': { id: 753, name: 'Nigeria 3D Flag Text Effect Online Free' },
+    '3dxmas': { id: 793, name: 'Create A Beautiful 3D Christmas Snow Text Effect' },
+    '3dxmasgold': { id: 794, name: 'Christmas And New Year Glittering 3D Golden Text Effect' },
+    '3dmetal3': { id: 798, name: 'Impressive Decorative 3D Metal Text Effect' },
+    '3dpaint': { id: 801, name: 'Create 3D Colorful Paint Text Effect Online' },
+    '3dglossy': { id: 802, name: 'Create Glossy Silver 3D Text Effect Online' },
+
+    // Gold & Metal (38 effects)
+    'steel': { id: 65, name: 'Heated Steel Lettering Effect' },
+    'steel2': { id: 66, name: 'Steel Text Effect' },
+    'chrome': { id: 91, name: 'Chrome Text Effect' },
+    'diamond': { id: 95, name: 'Diamond Text' },
+    'glittergold': { id: 98, name: 'Glitter Gold' },
+    'metalstar': { id: 109, name: 'Metal Star Text Online' },
+    'metaltext': { id: 110, name: 'Metal Text Effect Online' },
+    'goldtext': { id: 112, name: 'Gold Text Effect Online' },
+    'goldbeauty': { id: 122, name: 'Beautiful Gold Text Effect' },
+    'moderngold': { id: 157, name: 'Modern Gold' },
+    'goldtext2': { id: 158, name: 'Gold Text Effect' },
+    'metalblue': { id: 174, name: 'Metal Text Effect Blue' },
+    'goldpurple': { id: 175, name: 'Modern Gold Purple' },
+    'goldred': { id: 183, name: 'Modern Gold Red' },
+    'goldsilver': { id: 210, name: 'Modern Gold Silver' },
+    'gold3': { id: 212, name: 'Modern Gold 3' },
+    'gold4': { id: 213, name: 'Modern Gold 4' },
+    'gold5': { id: 215, name: 'Modern Gold 5' },
+    'metalhorror': { id: 265, name: 'Writing Horror Letters On Metal Plates' },
+    'goldpro': { id: 271, name: 'Gold Text Effect Pro' },
+    'goldstyle': { id: 272, name: 'Gold Text Effect Style' },
+    'goldletters': { id: 279, name: 'Write Gold Letters Online' },
+    'goldletters2': { id: 285, name: 'Write Gold Letters Online' },
+    'metalborder': { id: 294, name: 'Create Metal Border' },
+    'metalcover': { id: 297, name: 'Create Metallic Cover Online' },
+    'metalavatar': { id: 299, name: 'Create A Metal Avatar By Your Name' },
+    'goldavatar': { id: 303, name: 'Create Avatar Gold Online' },
+    'metalnew': { id: 305, name: 'Metal Text Effect Online New' },
+    'metalimpressive': { id: 307, name: 'Metallic Text Effect With Impressive Font' },
+    'metalhot': { id: 341, name: 'Online Hot Metallic Effect' },
+    'dragonsteel': { id: 347, name: 'Dragon Steel Text Effect Online' },
+    'metalglass': { id: 355, name: 'Nice Metallic Glass Effect' },
+    'chrome2': { id: 424, name: 'Glossy Chrome Text Effect Online' },
+    'socialbutton': { id: 450, name: 'Create Silver Button Gold Button Social Network Online' },
+    'luxurygold': { id: 594, name: 'Create A Luxury Gold Text Effect Online' },
+    'foilballoon': { id: 620, name: 'Colorful Birthday Foil Balloon Text Effects' },
+    'glittertext': { id: 656, name: 'Free Glitter Text Effect Maker Online' },
+    'titanium': { id: 812, name: 'Create The Titanium Text Effect To Introduce Iphone 15' },
+
+    // Galaxy & Space (14 effects)
+    'galaxybat': { id: 17, name: 'Write Galaxy Bat' },
+    'galaxywrite': { id: 18, name: 'Write Galaxy Online' },
+    'starsnight': { id: 84, name: 'Stars Night Online' },
+    'starsnight2': { id: 85, name: 'Stars Night Online 1' },
+    'galaxytext': { id: 116, name: 'Galaxy Text Effect' },
+    'wingsgalaxy': { id: 206, name: 'Wings Galaxy' },
+    'galaxynew': { id: 258, name: 'Galaxy Text Effect New' },
+    'galaxytree': { id: 288, name: 'Text Galaxy Tree Effect' },
+    'galaxyangels': { id: 289, name: 'The Effect Of Galaxy Angel Wings' },
+    'galaxycover': { id: 344, name: 'Create A Beautiful Galaxy Cover Lol' },
+    'lightgalaxy': { id: 345, name: 'Text Light Galaxy Effectt' },
+    'hollywoodstar': { id: 451, name: 'Print Name On Hollywood Walk Of Fame Star' },
+    'galaxywallpaper': { id: 528, name: 'Create Galaxy Wallpaper Mobile Online' },
+    'starzodiac': { id: 604, name: 'Create Star Zodiac Wallpaper Mobile' },
+
+    // Keep original names for backward compatibility
+    'fire': { id: 57, name: 'Fire Text Effect' },
+    'smoke': { id: 266, name: 'Smoke Text Effect' },
+    'matrix': { id: 352, name: 'Matrix Text Effect' },
+    'glitch': { id: 513, name: 'Glitch Text Effect' },
+    'horror': { id: 319, name: 'Horror Text Effect' },
+    'blood': { id: 554, name: 'Blood Text Effect' },
+    'love': { id: 286, name: 'Love Text Effect' },
+    'valentine': { id: 716, name: 'Valentine Text' },
+    'birthday': { id: 373, name: 'Create Birthday Cards By 3D Names' },
+    'metallogo': { id: 108, name: 'Metal Logo' },
+    'marvel': { id: 419, name: 'Marvel Style Logo' },
+    'avengers': { id: 427, name: 'Create Logo 3D Style Avengers Online' },
+    'teamlogo': { id: 432, name: 'Team Logo' },
+    'luxurylogo': { id: 458, name: 'Luxury Logo' },
+    'scifi': { id: 492, name: 'Sci-Fi Logo' },
+    'blackpink': { id: 607, name: 'Blackpink Logo' },
+    'pubg': { id: 609, name: 'PUBG Logo' },
+    'wingslogo': { id: 585, name: 'Wings Logo' },
+    'footballlogo': { id: 671, name: 'Football Team Logo' },
+    'pencillogo': { id: 719, name: 'Pencil Sketch Logo' },
+    'thunder': { id: 288, name: 'Thunder Text' },
+    'lava': { id: 400, name: 'Lava Text Effect' },
+    'space': { id: 559, name: 'Space 3D Text Effect' },
+    'lightbulb': { id: 608, name: 'Light Bulb Effect' },
+    'papercut': { id: 658, name: 'Paper Cut Effect' },
+    'colorpaint': { id: 801, name: 'Color Paint Effect' },
+    'glossy': { id: 802, name: 'Glossy Effect' },
+    'flagusa': { id: 725, name: 'USA Flag Effect' },
+    'flagng': { id: 753, name: 'Nigeria Flag Effect' },
+};
+
+const API_BASE = 'https://apis.xcasper.space/api/ephoto-360/generate';
+
+const allCommands = ['ephoto', 'ep', ...Object.keys(EFFECTS)];
+
+module.exports = {
+    type: 'ephoto',
+    command: allCommands,
+    operate: async (context) => {
+        const { q, args, prefix, command, reply, xcasper, m, fetch } = context;
+
+        if (command === 'ephoto' || command === 'ep') {
+            if (!args[0]) {
+                let list = '*📸 Ephoto 360 Effects*\n\n';
+                list += `*Total Effects:* ${Object.keys(EFFECTS).length}\n`;
+                list += `*API:* CASPER TECH\n\n`;
+                
+                const categories = {
+                    '✨ Neon & Glow': ['neon', 'neon2', 'neon3', 'blueneon', 'greenneon', 'galaxy', 'retroneon', 'glowneon', 'blackpinkneon', 'neonglitch', 'hacker', 'devil'],
+                    '🎨 3D Effects': ['3dwood', '3dcube', '3dwater', '3dgraffiti', '3dsilver', '3dmetal', '3druby', '3dhologram', '3dstone', '3dsand', '3dgradient', '3dsnow', '3dcrack', '3dcomic', '3dballoon'],
+                    '👑 Gold & Metal': ['goldtext', 'chrome', 'diamond', 'glittergold', 'metaltext', 'steel', 'titanium', 'luxurygold'],
+                    '🌌 Galaxy & Space': ['galaxytext', 'starsnight', 'wingsgalaxy', 'hollywoodstar'],
+                    '🔥 Text Effects': ['fire', 'smoke', 'matrix', 'glitch', 'horror', 'blood', 'love', 'valentine', 'thunder', 'lava'],
+                    '🎯 Logo & Brand': ['metallogo', 'marvel', 'avengers', 'teamlogo', 'luxurylogo', 'scifi', 'blackpink', 'pubg', 'footballlogo'],
+                    '🎪 Special': ['birthday', 'space', 'lightbulb', 'papercut', 'flagusa', 'flagng'],
+                };
+
+                for (const [cat, cmds] of Object.entries(categories)) {
+                    list += `╭───⊷ ${cat}\n`;
+                    const validCmds = cmds.filter(cmd => EFFECTS[cmd]);
+                    for (const cmd of validCmds) {
+                        list += `│ • ${prefix}${cmd}\n`;
+                    }
+                    list += '╰─────────────\n\n';
+                }
+                list += `📝 *Usage:* ${prefix}<effect> <text>\n`;
+                list += `📌 *Example:* ${prefix}neon CASPER\n`;
+                list += `🔍 *Total Commands:* ${allCommands.length}`;
+                return reply(list);
+            }
+
+            const effectName = args[0].toLowerCase();
+            const effect = EFFECTS[effectName];
+            if (!effect) {
+                return reply(`❌ Effect *${effectName}* not found.\n\nUse *${prefix}ephoto* to see all available effects.`);
+            }
+
+            const text = args.slice(1).join(' ');
+            if (!text) return reply(`📝 Enter text for *${effect.name}*\n\nExample: ${prefix}ephoto ${effectName} CASPER`);
+
+            reply('⏳ Processing...');
+            
+            try {
+                const url = `${API_BASE}?effectId=${effect.id}&text=${encodeURIComponent(text)}`;
+                console.log('API Request:', url);
+                
+                const res = await fetch(url);
+                
+                if (!res.ok) {
+                    throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+                }
+                
+                const data = await res.json();
+                
+                if (!data.success || !data.imageUrl) {
+                    throw new Error('Invalid API response');
+                }
+                
+                // FIX: Use xcasper.sendImage or the correct method for your bot
+                // Try different methods based on common WhatsApp bot structures
+                
+                // Method 1: If xcasper has sendImage
+                if (xcasper.sendImage) {
+                    await xcasper.sendImage(m.chat, data.imageUrl, `✨ *${effect.name}*\n📝 *Text:* ${text}`, m);
+                }
+                // Method 2: If using sock (WhatsApp Web)
+                else if (xcasper.sendMessage) {
+                    await xcasper.sendMessage(m.chat, {
+                        image: { url: data.imageUrl },
+                        caption: `✨ *${effect.name}*\n📝 *Text:* ${text}`
+                    }, { quoted: m });
+                }
+                // Method 3: If using reply with image
+                else if (xcasper.sendFile) {
+                    // Download and send as file
+                    const imgRes = await fetch(data.imageUrl);
+                    const buffer = Buffer.from(await imgRes.arrayBuffer());
+                    await xcasper.sendFile(m.chat, buffer, 'image.jpg', `✨ *${effect.name}*\n📝 *Text:* ${text}`, m);
+                }
+                // Method 4: If using simple reply with URL
+                else {
+                    await reply(`✨ *${effect.name}*\n📝 *Text:* ${text}\n\n🔗 ${data.imageUrl}`);
+                }
+                
+            } catch (e) {
+                console.log('[Ephoto Error]', e);
+                reply(`❌ *Error:* ${e.message}\n\nPlease try again later or use a different effect.`);
+            }
+            return;
+        }
+
+        // Handle direct effect commands
+        const effect = EFFECTS[command];
+        if (!effect) return;
+
+        if (!q) return reply(`📝 Enter text for *${effect.name}*\n\nExample: ${prefix + command} CASPER`);
+
+        reply('⏳ Processing...');
+        
+        try {
+            const url = `${API_BASE}?effectId=${effect.id}&text=${encodeURIComponent(q)}`;
+            
+            const res = await fetch(url);
+            
+            if (!res.ok) {
+                throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+            }
+            
+            const data = await res.json();
+            
+            if (!data.success || !data.imageUrl) {
+                throw new Error('Invalid API response');
+            }
+            
+            // Try different methods
+            if (xcasper.sendImage) {
+                await xcasper.sendImage(m.chat, data.imageUrl, `✨ *${effect.name}*\n📝 *Text:* ${q}`, m);
+            }
+            else if (xcasper.sendMessage) {
+                await xcasper.sendMessage(m.chat, {
+                    image: { url: data.imageUrl },
+                    caption: `✨ *${effect.name}*\n📝 *Text:* ${q}`
+                }, { quoted: m });
+            }
+            else if (xcasper.sendFile) {
+                const imgRes = await fetch(data.imageUrl);
+                const buffer = Buffer.from(await imgRes.arrayBuffer());
+                await xcasper.sendFile(m.chat, buffer, 'image.jpg', `✨ *${effect.name}*\n📝 *Text:* ${q}`, m);
+            }
+            else {
+                await reply(`✨ *${effect.name}*\n📝 *Text:* ${q}\n\n🔗 ${data.imageUrl}`);
+            }
+            
+        } catch (e) {
+            console.log('[Ephoto Error]', e);
+            reply(`❌ *Error:* ${e.message}\n\nPlease try again later.`);
+        }
+    }
+};
