@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CASPER-XD-ULTRA - Settings</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/settings.css">
+</head>
+<body>
+  <div class="bg-particles" id="particles"></div>
+  <div class="container">
+    <div class="header">
+      <a href="/" class="back-link">&larr; Dashboard</a>
+      <h1 class="bot-name">Settings</h1>
+      <p class="subtitle">Bot Configuration</p>
+    </div>
+
+    <form id="settingsForm">
+      <div class="settings-section">
+        <div class="section-title">
+          <span class="section-icon">&#128273;</span>
+          Session
+        </div>
+        <div class="field">
+          <label for="SESSION">Session String</label>
+          <textarea id="SESSION" name="SESSION" rows="3" placeholder="Paste your session string (CASPER;;;...)"></textarea>
+          <span class="field-hint">Your WhatsApp session string</span>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <div class="section-title">
+          <span class="section-icon">&#128081;</span>
+          Owner
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="OWNER_NAME">Owner Name</label>
+            <input type="text" id="OWNER_NAME" name="OWNER_NAME" placeholder="TRABY-CASPER">
+          </div>
+          <div class="field">
+            <label for="OWNER_NUMBERS">Owner Numbers</label>
+            <input type="text" id="OWNER_NUMBERS" name="OWNER_NUMBERS" placeholder="254xxxxxxxxx,254xxxxxxxxx">
+            <span class="field-hint">Comma-separated phone numbers</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <div class="section-title">
+          <span class="section-icon">&#129302;</span>
+          Bot
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="BOT_NAME">Bot Name</label>
+            <input type="text" id="BOT_NAME" name="BOT_NAME" placeholder="CASPER-XD-ULTRA">
+          </div>
+          <div class="field">
+            <label for="PREFIX">Command Prefix</label>
+            <input type="text" id="PREFIX" name="PREFIX" placeholder="." maxlength="5">
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="BOT_MODE">Bot Mode</label>
+            <select id="BOT_MODE" name="BOT_MODE">
+              <option value="public">Public</option>
+              <option value="self">Self</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="TIMEZONE">Timezone</label>
+            <input type="text" id="TIMEZONE" name="TIMEZONE" placeholder="Africa/Nairobi">
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <div class="section-title">
+          <span class="section-icon">&#9881;</span>
+          Features
+        </div>
+        <div class="field-row">
+          <div class="field toggle-field">
+            <label for="WELCOME">Welcome Messages</label>
+            <label class="toggle">
+              <input type="checkbox" id="WELCOME" name="WELCOME">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="field toggle-field">
+            <label for="ADMIN_EVENT">Admin Event Notifications</label>
+            <label class="toggle">
+              <input type="checkbox" id="ADMIN_EVENT" name="ADMIN_EVENT">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <div class="section-title">
+          <span class="section-icon">&#127912;</span>
+          Stickers
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="PACK_NAME">Pack Name</label>
+            <input type="text" id="PACK_NAME" name="PACK_NAME" placeholder="CASPER-XD-ULTRA">
+          </div>
+          <div class="field">
+            <label for="STICKER_AUTHOR">Author Text</label>
+            <input type="text" id="STICKER_AUTHOR" name="STICKER_AUTHOR" placeholder="TRABY-CASPER">
+          </div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button type="submit" class="btn-save" id="saveBtn">Save Settings</button>
+        <div class="save-status" id="saveStatus"></div>
+      </div>
+    </form>
+
+    <div class="footer">
+      <p>&copy; 2024 - 2026 CASPER TECH KENYA DEVELOPERS. All rights reserved.</p>
+    </div>
+  </div>
+
+  <script src="/script.js"></script>
+  <script src="/settings.js"></script>
+</body>
+</html>

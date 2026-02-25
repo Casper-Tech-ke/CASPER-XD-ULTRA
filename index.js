@@ -49,7 +49,55 @@ setupAndStartBot();
 const os = require('os');
 const botStartTime = Date.now();
 
+app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
+
+const ENV_PATH = path.join(__dirname, '.env');
+const ENV_KEYS = [
+  'SESSION', 'OWNER_NUMBERS', 'OWNER_NAME', 'BOT_NAME', 'BOT_MODE',
+  'PREFIX', 'TIMEZONE', 'WELCOME', 'ADMIN_EVENT', 'PACK_NAME', 'STICKER_AUTHOR'
+];
+
+function parseEnv(filePath) {
+  const result = {};
+  if (!fs.existsSync(filePath)) return result;
+  const lines = fs.readFileSync(filePath, 'utf8').split('\n');
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith('#')) continue;
+    const idx = trimmed.indexOf('=');
+    if (idx === -1) continue;
+    const key = trimmed.substring(0, idx).trim();
+    const val = trimmed.substring(idx + 1).trim();
+    result[key] = val;
+  }
+  return result;
+}
+
+function writeEnv(filePath, data) {
+  const lines = ENV_KEYS.map(key => `${key}=${data[key] || ''}`);
+  fs.writeFileSync(filePath, lines.join('\n') + '\n');
+}
+
+app.get('/api/settings', (req, res) => {
+  const env = parseEnv(ENV_PATH);
+  const settings = {};
+  for (const key of ENV_KEYS) {
+    settings[key] = env[key] || '';
+  }
+  res.json(settings);
+});
+
+app.post('/api/settings', (req, res) => {
+  const current = parseEnv(ENV_PATH);
+  for (const key of ENV_KEYS) {
+    if (req.body[key] !== undefined) {
+      current[key] = req.body[key];
+    }
+  }
+  writeEnv(ENV_PATH, current);
+  res.json({ success: true });
+});
 
 app.get('/api/stats', (req, res) => {
   const botUptime = Math.floor((Date.now() - botStartTime) / 1000);
