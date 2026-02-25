@@ -46,7 +46,35 @@ function setupAndStartBot() {
 
 setupAndStartBot();
 
+const os = require('os');
+const botStartTime = Date.now();
+
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('/api/stats', (req, res) => {
+  const botUptime = Math.floor((Date.now() - botStartTime) / 1000);
+  const sysUptime = Math.floor(os.uptime());
+
+  res.json({
+    bot: {
+      name: 'CASPER-XD-ULTRA',
+      owner: 'TRABY-CASPER',
+      team: 'CASPER TECH KENYA DEVELOPERS',
+      uptime: botUptime
+    },
+    system: {
+      platform: os.platform(),
+      arch: os.arch(),
+      hostname: os.hostname(),
+      cpus: os.cpus().length,
+      cpuModel: os.cpus()[0]?.model || 'Unknown',
+      totalMemory: os.totalmem(),
+      freeMemory: os.freemem(),
+      uptime: sysUptime,
+      nodeVersion: process.version
+    }
+  });
+});
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
