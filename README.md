@@ -17,7 +17,6 @@
   <a href="#railway"><img src="https://img.shields.io/badge/Deploy%20on-Railway-black?style=for-the-badge&logo=railway" alt="Deploy on Railway"></a>
   <a href="#vps"><img src="https://img.shields.io/badge/Deploy%20on-VPS-green?style=for-the-badge&logo=linux" alt="Deploy on VPS"></a>
   <a href="#termux"><img src="https://img.shields.io/badge/Deploy%20on-Termux-black?style=for-the-badge&logo=android" alt="Deploy on Termux"></a>
-  <a href="#pterodactyl"><img src="https://img.shields.io/badge/Deploy%20on-Pterodactyl-blue?style=for-the-badge" alt="Deploy on Pterodactyl"></a>
   <a href="#render"><img src="https://img.shields.io/badge/Deploy%20on-Render-46E3B7?style=for-the-badge&logo=render" alt="Deploy on Render"></a>
 </p>
 
@@ -133,7 +132,6 @@ export OWNER_NUMBERS="254xxxxxxxxx"
 node index.js
 ```
 
-**Pterodactyl** — Set variables in the **Startup** tab of your server panel. The egg (`egg.json`) includes all variable definitions.
 
 ---
 
@@ -384,33 +382,6 @@ chmod +x ~/.termux/boot/start-casper.sh
 
 ---
 
-<a id="pterodactyl"></a>
-
-### Pterodactyl Panel
-
-1. **Import the egg:**
-   - Go to your Pterodactyl admin panel
-   - Navigate to **Nests** > **Import Egg**
-   - Upload the `egg.json` file from this repository
-
-2. **Create a server:**
-   - Go to **Servers** > **Create New**
-   - Select the **CASPER-XD ULTRA** egg
-   - Allocate resources (recommended: 512MB RAM, 10GB disk)
-   - Set the port allocation
-
-3. **Upload files:**
-   - Use SFTP or the file manager to upload all project files to the server
-   - Or use the startup command which will auto-install
-
-4. **Configure variables:**
-   - Go to **Startup** tab in the server panel
-   - Set your `SESSION`, `OWNER_NUMBERS`, and other variables
-
-5. **Start the server** from the console tab
-
----
-
 <a id="render"></a>
 
 ### Render
@@ -445,11 +416,20 @@ You can get your session string from:
 
 ## Support
 
-- WhatsApp Channel 1: [Join Here](https://whatsapp.com/channel/0029VbCK8vlKwqSSkFkC1l2k)
-- WhatsApp Channel 2: [Join Here](https://whatsapp.com/channel/0029Vb6XJQQHrDZi1RzKu90t)
-- Telegram: [@casper_tech_ke](https://t.me/casper_tech_ke)
-- Session Pairing: [Pairing.xcasper.space](https://Pairing.xcasper.space)
-- Deploy on Replit: [Get Started](https://replit.com/refer/johnmainaengie)
+<p align="center">
+  <a href="https://whatsapp.com/channel/0029VbCK8vlKwqSSkFkC1l2k"><img src="https://img.shields.io/badge/WhatsApp-Channel%201-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="WhatsApp Channel 1"></a>
+  <a href="https://whatsapp.com/channel/0029Vb6XJQQHrDZi1RzKu90t"><img src="https://img.shields.io/badge/WhatsApp-Channel%202-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="WhatsApp Channel 2"></a>
+</p>
+
+<p align="center">
+  <a href="https://t.me/casper_tech_ke"><img src="https://img.shields.io/badge/Telegram-@casper__tech__ke-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram"></a>
+  <a href="https://Pairing.xcasper.space"><img src="https://img.shields.io/badge/Session-Pairing.xcasper.space-F97316?style=for-the-badge&logo=link&logoColor=white" alt="Get Session"></a>
+</p>
+
+<p align="center">
+  <a href="https://replit.com/refer/johnmainaengie"><img src="https://img.shields.io/badge/Deploy-Replit-3B82F6?style=for-the-badge&logo=replit&logoColor=white" alt="Deploy on Replit"></a>
+  <a href="https://github.com"><img src="https://img.shields.io/badge/Star-GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="Star on GitHub"></a>
+</p>
 
 ---
 
