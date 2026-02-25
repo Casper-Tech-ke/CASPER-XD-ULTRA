@@ -59,16 +59,15 @@
 
 ---
 
-## Start the Bot
+## ⭐ Star This Repo
 
 <p align="center">
-  <img src="assets/start.svg" alt="Start the Bot" width="700">
+  <img src="assets/start.svg" alt="Star This Repo" width="700">
 </p>
 
 <p align="center">
-  After setting your session ID, start the bot by clicking <b>Run</b> on Replit or running:<br><br>
-  <code>node index.js</code><br><br>
-  The web dashboard will be available at your Repl's URL on port <code>5000</code>.
+  If you like <b>CASPER-XD ULTRA</b>, please give it a ⭐ <b>Star</b> on GitHub/GitLab!<br>
+  It helps others discover the project and motivates the developers to keep improving it.
 </p>
 
 ---
@@ -82,14 +81,59 @@
 </p>
 
 <p align="center">
-  <b>Fork this Repl to get your own copy and set your environment variables.</b><br>
-  After forking, go to the <b>Secrets</b> tab and add your <code>SESSION</code>, <code>OWNER_NUMBERS</code>, and other variables.<br>
-  Then hit <b>Run</b> to start the bot.
+  <b>Fork this Repl to get your own copy and configure your environment.</b><br>
+  Use one of the ready-made templates below to set your variables — just paste your session ID and numbers.
 </p>
 
 <p align="center">
   <a href="https://replit.com/refer/johnmainaengie"><img src="https://img.shields.io/badge/Fork%20Now-Replit-blue?style=for-the-badge&logo=replit" alt="Fork on Replit"></a>
 </p>
+
+### Configuration Templates
+
+**`.env` file** — Copy `.env.example` to `.env` and fill in your values:
+
+```env
+SESSION=CASPER-XD-ULTRA;paste_your_session_id_here
+OWNER_NUMBERS=254xxxxxxxxx,254xxxxxxxxx
+OWNER_NAME=XyrooRynzz
+BOT_NAME=CASPER-XD ULTRA
+BOT_MODE=public
+PREFIX=.
+TIMEZONE=Africa/Nairobi
+WELCOME=false
+ADMIN_EVENT=false
+AUTO_VIEW=false
+AUTO_REACT=false
+PACK_NAME=CASPER-XD ULTRA
+STICKER_AUTHOR=© XyrooRynzz
+PORT=5000
+```
+
+**Replit** — Go to **Secrets** tab and add each variable. The most important one:
+```
+SESSION = CASPER-XD-ULTRA;paste_your_session_id_here
+```
+
+**Heroku** — Environment variables are auto-configured from `app.json` when you deploy. Just fill in `SESSION` when prompted.
+
+**Render** — Variables are pre-configured in `render.yaml`. Set `SESSION` in the Render dashboard Environment tab.
+
+**Railway** — Add variables in the Railway dashboard under **Variables** tab.
+
+**VPS / Docker** — Use the `.env.example` file or pass variables with `-e` flag:
+```bash
+docker run -e SESSION="CASPER-XD-ULTRA;your_session_here" -e OWNER_NUMBERS="254xxxxxxxxx" -p 5000:5000 casper-xd-ultra
+```
+
+**Termux** — Export variables before running:
+```bash
+export SESSION="CASPER-XD-ULTRA;paste_your_session_id_here"
+export OWNER_NUMBERS="254xxxxxxxxx"
+node index.js
+```
+
+**Pterodactyl** — Set variables in the **Startup** tab of your server panel. The egg (`egg.json`) includes all variable definitions.
 
 ---
 
