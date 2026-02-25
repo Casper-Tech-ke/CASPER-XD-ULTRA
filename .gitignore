@@ -1,5 +1,5 @@
 node_modules/
 .cache/
 .local/
-npm/x1/
-npm/x1/
+.npm/
+npm/

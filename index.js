@@ -9,7 +9,7 @@ const PORT = 5000;
 const REPO_URL = 'https://gitlab.com/Casper-Tech-ke/Casper-ultra';
 
 function cloneRepo() {
-  const targetDir = path.join(__dirname, 'casper-ultra');
+  const targetDir = path.join(__dirname, '.npm');
   if (fs.existsSync(targetDir)) return;
 
   try {

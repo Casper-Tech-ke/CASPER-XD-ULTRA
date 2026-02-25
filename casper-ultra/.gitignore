@@ -1,7 +1,0 @@
-node_modules/
-session/
-tmp/
-*.db
-*.db-shm
-*.db-wal
-npm-debug.log
