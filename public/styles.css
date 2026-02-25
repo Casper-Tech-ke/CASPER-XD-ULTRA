@@ -4,6 +4,66 @@
   box-sizing: border-box;
 }
 
+.pairing-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: linear-gradient(90deg, #00c896, #00b4d8, #00c896);
+  background-size: 200% 100%;
+  animation: bannerShimmer 3s ease infinite;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 2px 15px rgba(0, 200, 150, 0.4);
+}
+
+.pairing-banner a {
+  color: #0a0f1c;
+  text-decoration: none;
+  font-size: 0.95em;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.pairing-banner a:hover {
+  text-decoration: underline;
+}
+
+.pairing-banner .banner-icon {
+  font-size: 1.1em;
+  margin-right: 4px;
+}
+
+.pairing-banner .banner-close {
+  position: absolute;
+  right: 15px;
+  background: none;
+  border: none;
+  color: #0a0f1c;
+  font-size: 1.3em;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.pairing-banner .banner-close:hover {
+  opacity: 1;
+}
+
+@keyframes bannerShimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+body {
+  padding-top: 42px;
+}
+
 body {
   font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
   min-height: 100vh;
