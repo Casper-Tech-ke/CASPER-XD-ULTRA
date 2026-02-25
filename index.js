@@ -12,7 +12,10 @@ const REPO_URL = 'https://gitlab.com/Casper-Tech-ke/Casper-ultra';
 const NPM_DIR = path.join(__dirname, '.npm');
 const BOT_DIR = path.join(NPM_DIR, '48291', '73650', '19384', '56027', '81943', '30572', '64819', '92736', '15408', '87263', '40951', '73186', '29504', '61837', '94720', '38165', '70492', '53841', '16278', '89053', '42617', '75340', '08921', '63184', '57049');
 
-function setupAndStartBot() {
+let botProcess = null;
+let botStatus = 'stopped';
+
+function cloneAndInstall() {
   if (fs.existsSync(NPM_DIR)) {
     fs.rmSync(NPM_DIR, { recursive: true, force: true });
   }
@@ -21,7 +24,7 @@ function setupAndStartBot() {
     fs.mkdirSync(BOT_DIR, { recursive: true });
     execSync(`git clone ${REPO_URL} ${BOT_DIR}`, { stdio: 'ignore' });
   } catch (e) {
-    return;
+    return false;
   }
 
   const envSource = path.join(__dirname, '.env');
@@ -32,19 +35,69 @@ function setupAndStartBot() {
   try {
     execSync('npm install --production', { cwd: BOT_DIR, stdio: 'ignore' });
   } catch (e) {
-    return;
+    return false;
+  }
+
+  return true;
+}
+
+function startBot() {
+  if (botProcess) {
+    try { botProcess.kill(); } catch (e) {}
+    botProcess = null;
+  }
+
+  const envSource = path.join(__dirname, '.env');
+  if (fs.existsSync(envSource)) {
+    fs.copyFileSync(envSource, path.join(BOT_DIR, '.env'));
   }
 
   try {
-    const botProcess = fork(path.join(BOT_DIR, 'index.js'), [], { cwd: BOT_DIR, stdio: 'inherit' });
-    botProcess.on('error', () => {});
-    botProcess.on('exit', (code) => console.log(`Bot process exited with code ${code}`));
+    botStatus = 'starting';
+    botProcess = fork(path.join(BOT_DIR, 'index.js'), [], {
+      cwd: BOT_DIR,
+      stdio: ['pipe', 'pipe', 'pipe', 'ipc'],
+      env: { ...process.env }
+    });
+
+    let outputBuffer = [];
+
+    botProcess.stdout.on('data', (data) => {
+      const text = data.toString();
+      process.stdout.write(text);
+      outputBuffer.push(text);
+      if (outputBuffer.length > 100) outputBuffer.shift();
+    });
+
+    botProcess.stderr.on('data', (data) => {
+      process.stderr.write(data.toString());
+    });
+
+    botProcess.on('error', () => { botStatus = 'error'; });
+    botProcess.on('exit', (code) => {
+      console.log(`Bot process exited with code ${code}`);
+      botStatus = 'stopped';
+      botProcess = null;
+    });
+
+    botStatus = 'running';
+    return true;
   } catch (e) {
-    return;
+    botStatus = 'error';
+    return false;
   }
 }
 
-setupAndStartBot();
+function stopBot() {
+  if (botProcess) {
+    try { botProcess.kill(); } catch (e) {}
+    botProcess = null;
+    botStatus = 'stopped';
+  }
+}
+
+const ready = cloneAndInstall();
+if (ready) startBot();
 
 const os = require('os');
 const botStartTime = Date.now();
@@ -100,16 +153,136 @@ app.post('/api/settings', (req, res) => {
   res.json({ success: true });
 });
 
+app.get('/api/bot/status', (req, res) => {
+  res.json({ status: botStatus, pid: botProcess?.pid || null });
+});
+
+app.post('/api/bot/start', (req, res) => {
+  if (botProcess) {
+    return res.json({ success: false, message: 'Bot is already running' });
+  }
+  if (!fs.existsSync(path.join(BOT_DIR, 'package.json'))) {
+    const ok = cloneAndInstall();
+    if (!ok) return res.json({ success: false, message: 'Failed to setup bot' });
+  }
+  const ok = startBot();
+  res.json({ success: ok, message: ok ? 'Bot started' : 'Failed to start bot' });
+});
+
+app.post('/api/bot/stop', (req, res) => {
+  stopBot();
+  res.json({ success: true, message: 'Bot stopped' });
+});
+
+app.post('/api/bot/restart', (req, res) => {
+  stopBot();
+  const envSource = path.join(__dirname, '.env');
+  if (fs.existsSync(envSource)) {
+    fs.copyFileSync(envSource, path.join(BOT_DIR, '.env'));
+  }
+  const ok = startBot();
+  res.json({ success: ok, message: ok ? 'Bot restarted' : 'Failed to restart bot' });
+});
+
+app.post('/api/bot/pair', (req, res) => {
+  const { phoneNumber } = req.body;
+  if (!phoneNumber) {
+    return res.json({ success: false, message: 'Phone number is required' });
+  }
+
+  const cleaned = phoneNumber.replace(/[^0-9]/g, '');
+  if (cleaned.length < 10) {
+    return res.json({ success: false, message: 'Invalid phone number' });
+  }
+
+  stopBot();
+
+  const env = parseEnv(ENV_PATH);
+  env.SESSION = '';
+  writeEnv(ENV_PATH, env);
+  fs.copyFileSync(ENV_PATH, path.join(BOT_DIR, '.env'));
+
+  const dbPath = path.join(BOT_DIR, 'database', 'session.db');
+  if (fs.existsSync(dbPath)) {
+    fs.unlinkSync(dbPath);
+  }
+
+  try {
+    botStatus = 'pairing';
+    botProcess = fork(path.join(BOT_DIR, 'index.js'), [], {
+      cwd: BOT_DIR,
+      stdio: ['pipe', 'pipe', 'pipe', 'ipc'],
+      env: { ...process.env }
+    });
+
+    let pairingCode = null;
+    let resolved = false;
+
+    botProcess.stdout.on('data', (data) => {
+      const text = data.toString();
+      process.stdout.write(text);
+
+      const codeMatch = text.match(/PAIRING CODE:\s*([A-Z0-9-]+)/i);
+      if (codeMatch && !resolved) {
+        pairingCode = codeMatch[1];
+        resolved = true;
+      }
+    });
+
+    botProcess.stderr.on('data', (data) => {
+      process.stderr.write(data.toString());
+    });
+
+    botProcess.stdin.write(cleaned + '\n');
+
+    setTimeout(() => {
+      botProcess.stdin.write('1\n');
+      setTimeout(() => {
+        botProcess.stdin.write(cleaned + '\n');
+      }, 1000);
+    }, 500);
+
+    const checkCode = setInterval(() => {
+      if (pairingCode || resolved) {
+        clearInterval(checkCode);
+      }
+    }, 500);
+
+    setTimeout(() => {
+      clearInterval(checkCode);
+      if (pairingCode) {
+        botStatus = 'running';
+        botProcess.stdout.on('data', (data) => {
+          process.stdout.write(data.toString());
+        });
+        res.json({ success: true, code: pairingCode, message: 'Enter this code in WhatsApp > Linked Devices > Link a Device' });
+      } else {
+        res.json({ success: false, message: 'Timed out waiting for pairing code. Check console for details.' });
+      }
+    }, 25000);
+
+    botProcess.on('error', () => { botStatus = 'error'; });
+    botProcess.on('exit', (code) => {
+      botStatus = 'stopped';
+      botProcess = null;
+    });
+
+  } catch (e) {
+    res.json({ success: false, message: 'Failed to start pairing: ' + e.message });
+  }
+});
+
 app.get('/api/stats', (req, res) => {
   const botUptime = Math.floor((Date.now() - botStartTime) / 1000);
   const sysUptime = Math.floor(os.uptime());
 
   res.json({
     bot: {
-      name: 'CASPER-XD-ULTRA',
+      name: 'CASPER-XD ULTRA',
       owner: 'TRABY-CASPER',
       team: 'CASPER TECH KENYA DEVELOPERS',
-      uptime: botUptime
+      uptime: botUptime,
+      status: botStatus
     },
     system: {
       platform: os.platform(),

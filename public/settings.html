@@ -139,6 +139,43 @@
       </div>
     </form>
 
+    <div class="settings-section bot-controls">
+      <div class="section-title">
+        <span class="section-icon">&#128640;</span>
+        Bot Controls
+      </div>
+      <div class="bot-status-row">
+        <span class="bot-status-label">Status:</span>
+        <span class="bot-status-value" id="botStatusText">Checking...</span>
+      </div>
+      <div class="control-buttons">
+        <button class="btn-control btn-start" id="startBtn" onclick="controlBot('start')">Start Bot</button>
+        <button class="btn-control btn-restart" id="restartBtn" onclick="controlBot('restart')">Restart Bot</button>
+        <button class="btn-control btn-stop" id="stopBtn" onclick="controlBot('stop')">Stop Bot</button>
+      </div>
+      <div class="control-status" id="controlStatus"></div>
+    </div>
+
+    <div class="settings-section pairing-section">
+      <div class="section-title">
+        <span class="section-icon">&#128241;</span>
+        WhatsApp Pairing
+      </div>
+      <p class="pairing-desc">Don't have a session string? Pair your WhatsApp directly by entering your phone number below.</p>
+      <div class="field">
+        <label for="pairPhone">Phone Number</label>
+        <input type="text" id="pairPhone" placeholder="254712345678 (with country code, no +)">
+        <span class="field-hint">Enter your full phone number with country code (no + or spaces)</span>
+      </div>
+      <button class="btn-pair" id="pairBtn" onclick="requestPairing()">Get Pairing Code</button>
+      <div class="pairing-result" id="pairingResult"></div>
+      <div class="pairing-code-display" id="pairingCodeBox" style="display:none;">
+        <div class="pairing-code-label">Your Pairing Code</div>
+        <div class="pairing-code" id="pairingCode"></div>
+        <div class="pairing-instructions">Open WhatsApp &gt; Linked Devices &gt; Link a Device &gt; Enter this code</div>
+      </div>
+    </div>
+
     <div class="footer">
       <p>&copy; 2024 - 2026 CASPER TECH KENYA DEVELOPERS. All rights reserved.</p>
     </div>
