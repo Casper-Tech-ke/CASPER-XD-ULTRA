@@ -1,5 +1,5 @@
 const TEXT_FIELDS = ['SESSION', 'OWNER_NUMBERS', 'OWNER_NAME', 'BOT_NAME', 'BOT_MODE', 'PREFIX', 'TIMEZONE', 'PACK_NAME', 'STICKER_AUTHOR'];
-const BOOL_FIELDS = ['WELCOME', 'ADMIN_EVENT'];
+const BOOL_FIELDS = ['WELCOME', 'ADMIN_EVENT', 'AUTO_VIEW', 'AUTO_REACT'];
 
 async function loadSettings() {
   try {

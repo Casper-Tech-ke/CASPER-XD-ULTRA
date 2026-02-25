@@ -55,7 +55,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 const ENV_PATH = path.join(__dirname, '.env');
 const ENV_KEYS = [
   'SESSION', 'OWNER_NUMBERS', 'OWNER_NAME', 'BOT_NAME', 'BOT_MODE',
-  'PREFIX', 'TIMEZONE', 'WELCOME', 'ADMIN_EVENT', 'PACK_NAME', 'STICKER_AUTHOR'
+  'PREFIX', 'TIMEZONE', 'WELCOME', 'ADMIN_EVENT', 'AUTO_VIEW', 'AUTO_REACT',
+  'PACK_NAME', 'STICKER_AUTHOR'
 ];
 
 function parseEnv(filePath) {
