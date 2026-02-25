@@ -1,19 +1,21 @@
 # CASPER-XD ULTRA Bot
 
 ## Overview
-A Node.js/Express web application that hosts the CASPER-XD ULTRA WhatsApp bot. It clones the bot from GitLab, installs dependencies, and starts the bot process. Includes a web dashboard for monitoring and a settings panel for configuration.
+A Node.js/Express web application that hosts the CASPER-XD ULTRA WhatsApp bot. It clones the bot from GitLab, installs dependencies, and starts the bot process. Includes a web dashboard for monitoring and a settings panel for configuration. All JavaScript code is heavily obfuscated for protection.
 
 ## Project Architecture
-- `index.js` - Main Express server. Handles bot lifecycle (clone, install, start/stop/restart), serves the web dashboard, and provides API endpoints for settings, stats, bot control, and WhatsApp pairing.
+- `index.js` - Obfuscated main Express server (source in `src/index.js`)
 - `public/` - Static frontend assets
   - `index.html` - Dashboard showing bot name, owner, uptime, and system stats
   - `settings.html` - Settings page for configuring bot env vars, bot controls, and WhatsApp pairing
   - `styles.css` - Main dashboard styles (dark theme)
   - `settings.css` - Settings page styles
-  - `script.js` - Dashboard JS (live uptime counters, stats fetching)
-  - `settings.js` - Settings JS (load/save settings, bot controls, pairing)
+  - `script.js` - Obfuscated dashboard JS (source in `src/script.js`)
+  - `settings.js` - Obfuscated settings JS (source in `src/settings.js`)
+- `src/` - Unobfuscated source files (git-ignored). Edit these, then run `node build.js` to re-obfuscate.
+- `build.js` - Obfuscation build script (git-ignored). Uses javascript-obfuscator with heavy encryption.
 - `.env` - Bot environment variables (SESSION, OWNER_NUMBERS, BOT_NAME, etc.)
-- `.npm/` - Hidden directory containing the cloned bot (deeply nested, git-ignored)
+- `.npm/` - Hidden directory containing the cloned bot (deeply nested path, git-ignored)
 
 ## Environment Variables (.env)
 - `SESSION` - WhatsApp session string

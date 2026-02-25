@@ -4,3 +4,5 @@ node_modules/
 .npm/
 .db_backup/
 npm/
+src/
+build.js
