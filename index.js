@@ -19,6 +19,12 @@ function setupAndStartBot() {
     }
   }
 
+  const envSource = path.join(__dirname, '.env');
+  const envDest = path.join(BOT_DIR, '.env');
+  if (fs.existsSync(envSource)) {
+    fs.copyFileSync(envSource, envDest);
+  }
+
   if (!fs.existsSync(path.join(BOT_DIR, 'node_modules'))) {
     try {
       execSync('npm install --production', { cwd: BOT_DIR, stdio: 'ignore' });
