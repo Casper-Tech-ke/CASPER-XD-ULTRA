@@ -2,7 +2,9 @@
   <img src="https://files.catbox.moe/qbcebp.jpg" width="150" height="150" alt="CASPER-XD ULTRA">
 </p>
 
-<h1 align="center">CASPER-XD ULTRA</h1>
+<p align="center">
+  <img src="assets/banner.svg" alt="CASPER-XD ULTRA Banner" width="700">
+</p>
 
 <p align="center">
   <b>Multi-Device WhatsApp Bot</b><br>
