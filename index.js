@@ -24,10 +24,9 @@ function setupAndStartBot() {
     return;
   }
 
-  const envSource = path.join(__dirname, '.env');
-  const envDest = path.join(BOT_DIR, '.env');
-  if (fs.existsSync(envSource)) {
-    fs.copyFileSync(envSource, envDest);
+  const session = process.env.SESSION || '';
+  if (session) {
+    fs.writeFileSync(path.join(BOT_DIR, '.env'), `SESSION=${session}\n`);
   }
 
   try {
