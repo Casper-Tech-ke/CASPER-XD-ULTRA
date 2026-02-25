@@ -59,6 +59,40 @@
 
 ---
 
+## Start the Bot
+
+<p align="center">
+  <img src="assets/start.svg" alt="Start the Bot" width="700">
+</p>
+
+<p align="center">
+  After setting your session ID, start the bot by clicking <b>Run</b> on Replit or running:<br><br>
+  <code>node index.js</code><br><br>
+  The web dashboard will be available at your Repl's URL on port <code>5000</code>.
+</p>
+
+---
+
+## Fork & Configure
+
+<p align="center">
+  <a href="https://replit.com/refer/johnmainaengie">
+    <img src="assets/fork.svg" alt="Fork on Replit" width="700">
+  </a>
+</p>
+
+<p align="center">
+  <b>Fork this Repl to get your own copy and set your environment variables.</b><br>
+  After forking, go to the <b>Secrets</b> tab and add your <code>SESSION</code>, <code>OWNER_NUMBERS</code>, and other variables.<br>
+  Then hit <b>Run</b> to start the bot.
+</p>
+
+<p align="center">
+  <a href="https://replit.com/refer/johnmainaengie"><img src="https://img.shields.io/badge/Fork%20Now-Replit-blue?style=for-the-badge&logo=replit" alt="Fork on Replit"></a>
+</p>
+
+---
+
 ## Environment Variables
 
 | Variable | Description | Default |
