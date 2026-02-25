@@ -1,0 +1,84 @@
+{
+  "name": "CASPER-XD ULTRA",
+  "description": "Multi-Device WhatsApp Bot by CASPER TECH KENYA DEVELOPERS",
+  "repository": "https://github.com/user/casper-xd-ultra",
+  "logo": "https://files.catbox.moe/qbcebp.jpg",
+  "keywords": ["whatsapp", "bot", "casper", "multi-device"],
+  "stack": "container",
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "eco"
+    }
+  },
+  "env": {
+    "SESSION": {
+      "description": "WhatsApp session string (get from https://Pairing.xcasper.space)",
+      "required": true
+    },
+    "OWNER_NUMBERS": {
+      "description": "Comma-separated owner phone numbers (e.g. 254xxxxxxxxx)",
+      "required": false
+    },
+    "OWNER_NAME": {
+      "description": "Owner display name",
+      "value": "XyrooRynzz",
+      "required": false
+    },
+    "BOT_NAME": {
+      "description": "Bot display name",
+      "value": "CASPER-XD ULTRA",
+      "required": false
+    },
+    "BOT_MODE": {
+      "description": "Bot mode: public or self",
+      "value": "public",
+      "required": false
+    },
+    "PREFIX": {
+      "description": "Command prefix",
+      "value": ".",
+      "required": false
+    },
+    "TIMEZONE": {
+      "description": "Timezone",
+      "value": "Africa/Nairobi",
+      "required": false
+    },
+    "WELCOME": {
+      "description": "Enable welcome messages (true/false)",
+      "value": "false",
+      "required": false
+    },
+    "ADMIN_EVENT": {
+      "description": "Admin event notifications (true/false)",
+      "value": "false",
+      "required": false
+    },
+    "AUTO_VIEW": {
+      "description": "Auto-view statuses (true/false)",
+      "value": "false",
+      "required": false
+    },
+    "AUTO_REACT": {
+      "description": "Auto-react to statuses (true/false)",
+      "value": "false",
+      "required": false
+    },
+    "PACK_NAME": {
+      "description": "Sticker pack name",
+      "value": "CASPER-XD ULTRA",
+      "required": false
+    },
+    "STICKER_AUTHOR": {
+      "description": "Sticker author text",
+      "value": "© XyrooRynzz",
+      "required": false
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}

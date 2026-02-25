@@ -1,0 +1,34 @@
+services:
+  - type: web
+    name: casper-xd-ultra
+    runtime: node
+    plan: free
+    buildCommand: npm install --production
+    startCommand: node index.js
+    envVars:
+      - key: SESSION
+        sync: false
+      - key: OWNER_NUMBERS
+        sync: false
+      - key: OWNER_NAME
+        value: XyrooRynzz
+      - key: BOT_NAME
+        value: CASPER-XD ULTRA
+      - key: BOT_MODE
+        value: public
+      - key: PREFIX
+        value: "."
+      - key: TIMEZONE
+        value: Africa/Nairobi
+      - key: WELCOME
+        value: "false"
+      - key: ADMIN_EVENT
+        value: "false"
+      - key: AUTO_VIEW
+        value: "false"
+      - key: AUTO_REACT
+        value: "false"
+      - key: PACK_NAME
+        value: CASPER-XD ULTRA
+      - key: STICKER_AUTHOR
+        value: "© XyrooRynzz"

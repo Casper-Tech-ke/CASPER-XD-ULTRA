@@ -16,6 +16,14 @@
   <a href="#vps"><img src="https://img.shields.io/badge/Deploy%20on-VPS-green?style=for-the-badge&logo=linux" alt="Deploy on VPS"></a>
   <a href="#termux"><img src="https://img.shields.io/badge/Deploy%20on-Termux-black?style=for-the-badge&logo=android" alt="Deploy on Termux"></a>
   <a href="#pterodactyl"><img src="https://img.shields.io/badge/Deploy%20on-Pterodactyl-blue?style=for-the-badge" alt="Deploy on Pterodactyl"></a>
+  <a href="#render"><img src="https://img.shields.io/badge/Deploy%20on-Render-46E3B7?style=for-the-badge&logo=render" alt="Deploy on Render"></a>
+</p>
+
+<p align="center">
+  <a href="https://whatsapp.com/channel/0029VbCK8vlKwqSSkFkC1l2k"><img src="https://img.shields.io/badge/WhatsApp-Channel%201-25D366?style=flat-square&logo=whatsapp" alt="WA Channel 1"></a>
+  <a href="https://whatsapp.com/channel/0029Vb6XJQQHrDZi1RzKu90t"><img src="https://img.shields.io/badge/WhatsApp-Channel%202-25D366?style=flat-square&logo=whatsapp" alt="WA Channel 2"></a>
+  <a href="https://t.me/casper_tech_ke"><img src="https://img.shields.io/badge/Telegram-casper__tech__ke-2CA5E0?style=flat-square&logo=telegram" alt="Telegram"></a>
+  <a href="https://Pairing.xcasper.space"><img src="https://img.shields.io/badge/Get%20Session-Pairing-orange?style=flat-square" alt="Get Session"></a>
 </p>
 
 ---
@@ -307,18 +315,44 @@ chmod +x ~/.termux/boot/start-casper.sh
 
 ---
 
+<a id="render"></a>
+
+### Render
+
+1. Sign up at [Render](https://render.com)
+2. Click **New** > **Web Service**
+3. Connect your GitHub repository
+4. Render auto-detects config from `render.yaml`
+5. Or configure manually:
+   - **Runtime:** Node
+   - **Build Command:** `npm install --production`
+   - **Start Command:** `node index.js`
+6. Add environment variables in the **Environment** tab:
+   - `SESSION` = your session string
+   - `OWNER_NUMBERS` = your phone numbers
+7. Click **Deploy**
+
+**One-click via Blueprint:**
+- Push this repo to GitHub, then go to `https://render.com/deploy` and connect the repo. Render will auto-configure from the `render.yaml` file.
+
+---
+
 ## Get Session String
 
-You can get your session string in two ways:
+You can get your session string from:
 
-1. **From the Web Dashboard:** Go to Settings > WhatsApp Pairing > Enter your phone number > Get the pairing code > Link in WhatsApp
-2. **Direct pairing:** Start the bot without a session, use the web UI pairing feature
+1. **Online:** Visit [Pairing.xcasper.space](https://Pairing.xcasper.space) to get a session string
+2. **From the Web Dashboard:** Go to Settings > WhatsApp Pairing > Enter your phone number > Get the pairing code > Link in WhatsApp
+3. **Direct pairing:** Start the bot without a session, use the web UI pairing feature
 
 ---
 
 ## Support
 
-- WhatsApp Channel: [Join Here](https://whatsapp.com/channel/0029VaagYHwCnA82hDK7l31D)
+- WhatsApp Channel 1: [Join Here](https://whatsapp.com/channel/0029VbCK8vlKwqSSkFkC1l2k)
+- WhatsApp Channel 2: [Join Here](https://whatsapp.com/channel/0029Vb6XJQQHrDZi1RzKu90t)
+- Telegram: [@casper_tech_ke](https://t.me/casper_tech_ke)
+- Session Pairing: [Pairing.xcasper.space](https://Pairing.xcasper.space)
 - Deploy on Replit: [Get Started](https://replit.com/refer/johnmainaengie)
 
 ---
