@@ -7,3 +7,5 @@ npm/
 src/
 build.js
 replit.md
+.replit
+package-lock.json
