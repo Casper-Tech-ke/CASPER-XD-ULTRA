@@ -36,3 +36,9 @@ externalPort = 80
 [deployment]
 deploymentTarget = "autoscale"
 run = ["node", "index.js"]
+
+[userenv]
+
+[userenv.shared]
+BITBUCKET_TOKEN = "ATATT3xFfGF0s-dZf4mO9T2Ah_btV7aVEbXGkUVrDRdNW_mJmGEU1chogEXKfalv_J00wotcHdYnfYSgOAYSHY4zBpn4AG_dw0jOYrRgJ0SmPrRBW1_1yhNhsNn8AtIwN8LopjsHTBBCRvvAgPE4WbkoqZHQCsbNwAGGIktfkQXK08BKt8wxrTo=C8E9AAAA"
+BITBUCKET_USER = "caspertechke-admin"
