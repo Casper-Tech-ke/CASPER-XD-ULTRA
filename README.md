@@ -122,7 +122,7 @@ SESSION = CASPER-XD-ULTRA;paste_your_session_id_here
 
 **VPS / Docker** — Use the `.env.example` file or pass variables with `-e` flag:
 ```bash
-docker run -e SESSION="CASPER-XD-ULTRA;your_session_here" -e OWNER_NUMBERS="254xxxxxxxxx" -p 5000:5000 casper-xd-ultra
+docker run -e SESSION="CASPER-XD-ULTRA;your_session_here" -e OWNER_NUMBERS="254xxxxxxxxx" -p 5000:5000 CASPER-XD-ULTRA
 ```
 
 **Termux** — Export variables before running:

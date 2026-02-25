@@ -1,5 +1,5 @@
 {
-  "name": "casper-xd-ultra",
+  "name": "CASPER-XD-ULTRA",
   "version": "1.0.0",
   "description": "CASPER-XD ULTRA - Multi-Device WhatsApp Bot by CASPER TECH KENYA DEVELOPERS. Features a web dashboard, settings panel, bot controls, WhatsApp pairing, and database backup. Deployable on Replit, Heroku, Railway, Render, VPS, Docker, and Termux.",
   "main": "index.js",
@@ -15,7 +15,7 @@
     "whatsapp-bot",
     "bot",
     "casper",
-    "casper-xd-ultra",
+    "CASPER-XD-ULTRA",
     "multi-device",
     "chatbot",
     "nodejs",
@@ -31,7 +31,7 @@
   "homepage": "https://Pairing.xcasper.space",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Casper-Tech-ke/casper-xd-ultra"
+    "url": "https://github.com/Casper-Tech-ke/CASPER-XD-ULTRA"
   },
   "bugs": {
     "url": "https://t.me/casper_tech_ke"

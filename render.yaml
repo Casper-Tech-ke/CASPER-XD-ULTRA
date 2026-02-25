@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: casper-xd-ultra
+    name: CASPER-XD-ULTRA
     runtime: node
     plan: free
     buildCommand: npm install --production
