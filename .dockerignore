@@ -1,0 +1,9 @@
+node_modules
+.npm
+.db_backup
+.cache
+.local
+src
+build.js
+replit.md
+.git

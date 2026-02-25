@@ -1,0 +1,102 @@
+{
+  "_comment": "Pterodactyl Panel Egg Configuration",
+  "meta": {
+    "version": "PTDL_v2",
+    "update_url": null
+  },
+  "exported_at": "2026-01-01T00:00:00+00:00",
+  "name": "CASPER-XD ULTRA",
+  "author": "caspertech@dev.io",
+  "description": "CASPER-XD ULTRA WhatsApp Bot",
+  "features": null,
+  "docker_images": {
+    "node:20": "node:20-slim"
+  },
+  "file_denylist": [],
+  "startup": "npm install --production && node index.js",
+  "config": {
+    "files": "{}",
+    "startup": "{}",
+    "logs": "{}",
+    "stop": "^C"
+  },
+  "scripts": {
+    "installation": {
+      "script": "#!/bin/bash\napt-get update && apt-get install -y git curl\ncurl -sL https://deb.nodesource.com/setup_20.x | bash -\napt-get install -y nodejs\ncd /mnt/server\nif [ -f package.json ]; then\n  npm install --production\nfi",
+      "container": "debian:bullseye-slim",
+      "entrypoint": "bash"
+    }
+  },
+  "variables": [
+    {
+      "name": "Session",
+      "description": "WhatsApp session string",
+      "env_variable": "SESSION",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string",
+      "sort": 1
+    },
+    {
+      "name": "Owner Numbers",
+      "description": "Comma-separated owner phone numbers",
+      "env_variable": "OWNER_NUMBERS",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string",
+      "sort": 2
+    },
+    {
+      "name": "Owner Name",
+      "description": "Owner display name",
+      "env_variable": "OWNER_NAME",
+      "default_value": "XyrooRynzz",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string",
+      "sort": 3
+    },
+    {
+      "name": "Bot Name",
+      "description": "Bot display name",
+      "env_variable": "BOT_NAME",
+      "default_value": "CASPER-XD ULTRA",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string",
+      "sort": 4
+    },
+    {
+      "name": "Bot Mode",
+      "description": "public or self",
+      "env_variable": "BOT_MODE",
+      "default_value": "public",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|in:public,self",
+      "sort": 5
+    },
+    {
+      "name": "Prefix",
+      "description": "Command prefix",
+      "env_variable": "PREFIX",
+      "default_value": ".",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "nullable|string|max:5",
+      "sort": 6
+    },
+    {
+      "name": "Port",
+      "description": "Server port",
+      "env_variable": "PORT",
+      "default_value": "5000",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|integer|between:1024,65535",
+      "sort": 7
+    }
+  ]
+}
