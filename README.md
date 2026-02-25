@@ -43,6 +43,22 @@
 
 ---
 
+## Get Your Session ID
+
+<p align="center">
+  <a href="https://Pairing.xcasper.space">
+    <img src="assets/pairing.svg" alt="Get Session ID - Pair Now" width="700">
+  </a>
+</p>
+
+<p align="center">
+  <b>You need a session ID to run the bot.</b><br>
+  Visit <a href="https://Pairing.xcasper.space"><b>Pairing.xcasper.space</b></a> to pair your WhatsApp and get your session string.<br>
+  Then paste it in the <code>SESSION</code> environment variable or in the Settings panel.
+</p>
+
+---
+
 ## Environment Variables
 
 | Variable | Description | Default |

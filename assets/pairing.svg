@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 160" width="800">
+  <defs>
+    <linearGradient id="pBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0f1c;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#1a2340;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="pGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00c896"/>
+      <stop offset="50%" style="stop-color:#00b4d8"/>
+      <stop offset="100%" style="stop-color:#00c896"/>
+    </linearGradient>
+    <linearGradient id="pBtn" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00c896"/>
+      <stop offset="100%" style="stop-color:#00b4d8"/>
+    </linearGradient>
+    <filter id="pGlow">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="800" height="160" rx="15" fill="url(#pBg)" stroke="url(#pGrad)" stroke-width="2"/>
+  <circle cx="80" cy="80" r="35" fill="none" stroke="url(#pGrad)" stroke-width="2" filter="url(#pGlow)"/>
+  <text x="80" y="74" text-anchor="middle" fill="url(#pGrad)" font-family="Arial,sans-serif" font-size="28" filter="url(#pGlow)">&#128279;</text>
+  <text x="80" y="98" text-anchor="middle" fill="#8892a8" font-family="Arial,sans-serif" font-size="10" letter-spacing="1">PAIR</text>
+  <text x="420" y="50" text-anchor="middle" fill="url(#pGrad)" font-family="Arial,sans-serif" font-weight="bold" font-size="26" letter-spacing="2" filter="url(#pGlow)">GET YOUR SESSION ID</text>
+  <text x="420" y="78" text-anchor="middle" fill="#8892a8" font-family="Arial,sans-serif" font-size="14" letter-spacing="1">Pair your WhatsApp to get a session string for the bot</text>
+  <rect x="290" y="95" width="260" height="42" rx="21" fill="url(#pBtn)"/>
+  <text x="420" y="122" text-anchor="middle" fill="#0a0f1c" font-family="Arial,sans-serif" font-weight="bold" font-size="16" letter-spacing="1">Pairing.xcasper.space</text>
+  <circle cx="680" cy="30" r="2.5" fill="#00c896" opacity="0.4"/>
+  <circle cx="720" cy="130" r="2" fill="#00b4d8" opacity="0.3"/>
+  <circle cx="170" cy="25" r="2" fill="#00c896" opacity="0.5"/>
+  <circle cx="750" cy="75" r="3" fill="#00b4d8" opacity="0.2"/>
+</svg>
