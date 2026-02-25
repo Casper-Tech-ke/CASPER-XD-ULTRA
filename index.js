@@ -340,13 +340,24 @@ app.post('/api/bot/pair', (req, res) => {
   }
 });
 
+function getBotPackageInfo() {
+  try {
+    const pkg = JSON.parse(fs.readFileSync(path.join(BOT_DIR, 'package.json'), 'utf8'));
+    return { name: pkg.name || 'CASPER-XD ULTRA', version: pkg.version || '1.0.0' };
+  } catch (e) {
+    return { name: 'CASPER-XD ULTRA', version: '1.0.0' };
+  }
+}
+
 app.get('/api/stats', (req, res) => {
   const botUptime = Math.floor((Date.now() - botStartTime) / 1000);
   const sysUptime = Math.floor(os.uptime());
+  const pkg = getBotPackageInfo();
 
   res.json({
     bot: {
-      name: 'CASPER-XD ULTRA',
+      name: pkg.name,
+      version: pkg.version,
       owner: 'TRABY-CASPER',
       team: 'CASPER TECH KENYA DEVELOPERS',
       uptime: botUptime,

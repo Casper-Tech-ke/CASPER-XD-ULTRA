@@ -54,6 +54,8 @@ async function fetchStats() {
     const data = await res.json();
 
     document.getElementById('statusBadge').querySelector('#statusText').textContent = 'Online';
+    document.getElementById('botName').textContent = data.bot.name || 'CASPER-XD ULTRA';
+    document.getElementById('botVersion').textContent = data.bot.version ? 'v' + data.bot.version : '';
     document.getElementById('ownerName').textContent = data.bot.owner;
     document.getElementById('teamName').textContent = data.bot.team;
     document.getElementById('platform').textContent = data.system.platform;
