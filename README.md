@@ -65,7 +65,7 @@
 </p>
 
 <p align="center">
-  If you like <b>CASPER-XD ULTRA</b>, please give it a ⭐ <b>Star</b> on GitHub/GitLab!<br>
+  If you like <b>CASPER-XD ULTRA</b>, please give it a ⭐ <b>Star</b> on GitHub!<br>
   It helps others discover the project and motivates the developers to keep improving it.
 </p>
 
