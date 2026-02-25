@@ -24,7 +24,7 @@ function setupAndStartBot() {
     return;
   }
 
-  const envSource = path.join(__dirname, '.environment');
+  const envSource = path.join(__dirname, '.env');
   if (fs.existsSync(envSource)) {
     fs.copyFileSync(envSource, path.join(BOT_DIR, '.env'));
   }
