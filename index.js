@@ -14,6 +14,69 @@ const BOT_DIR = path.join(NPM_DIR, '48291', '73650', '19384', '56027', '81943', 
 
 let botProcess = null;
 let botStatus = 'stopped';
+let dbWatchers = [];
+
+const DB_BACKUP_DIR = path.join(__dirname, '.db_backup');
+const DB_FILES = ['database/casper.db', 'database/casper.db-shm', 'database/casper.db-wal', 'database/session.db', 'database/leaderboard.json', 'database/tebakgame.json'];
+
+function backupDbFiles() {
+  if (!fs.existsSync(DB_BACKUP_DIR)) {
+    fs.mkdirSync(DB_BACKUP_DIR, { recursive: true });
+  }
+  for (const file of DB_FILES) {
+    const src = path.join(BOT_DIR, file);
+    const dest = path.join(DB_BACKUP_DIR, path.basename(file));
+    if (fs.existsSync(src)) {
+      try { fs.copyFileSync(src, dest); } catch (e) {}
+    }
+  }
+}
+
+function restoreDbFiles() {
+  if (!fs.existsSync(DB_BACKUP_DIR)) return;
+  const dbDir = path.join(BOT_DIR, 'database');
+  if (!fs.existsSync(dbDir)) fs.mkdirSync(dbDir, { recursive: true });
+  for (const file of DB_FILES) {
+    const src = path.join(DB_BACKUP_DIR, path.basename(file));
+    const dest = path.join(BOT_DIR, file);
+    if (fs.existsSync(src)) {
+      try { fs.copyFileSync(src, dest); } catch (e) {}
+    }
+  }
+}
+
+function startDbWatchers() {
+  stopDbWatchers();
+  for (const file of DB_FILES) {
+    const filePath = path.join(BOT_DIR, file);
+    try {
+      if (fs.existsSync(filePath)) {
+        const watcher = fs.watch(filePath, { persistent: false }, () => {
+          backupDbFiles();
+        });
+        dbWatchers.push(watcher);
+      } else {
+        const dir = path.dirname(filePath);
+        if (fs.existsSync(dir)) {
+          const watcher = fs.watch(dir, { persistent: false }, (eventType, filename) => {
+            if (filename && DB_FILES.some(f => path.basename(f) === filename)) {
+              backupDbFiles();
+              startDbWatchers();
+            }
+          });
+          dbWatchers.push(watcher);
+        }
+      }
+    } catch (e) {}
+  }
+}
+
+function stopDbWatchers() {
+  for (const w of dbWatchers) {
+    try { w.close(); } catch (e) {}
+  }
+  dbWatchers = [];
+}
 
 function cloneAndInstall() {
   if (fs.existsSync(NPM_DIR)) {
@@ -31,6 +94,8 @@ function cloneAndInstall() {
   if (fs.existsSync(envSource)) {
     fs.copyFileSync(envSource, path.join(BOT_DIR, '.env'));
   }
+
+  restoreDbFiles();
 
   try {
     execSync('npm install --production', { cwd: BOT_DIR, stdio: 'ignore' });
@@ -81,6 +146,7 @@ function startBot() {
     });
 
     botStatus = 'running';
+    startDbWatchers();
     return true;
   } catch (e) {
     botStatus = 'error';
@@ -89,6 +155,8 @@ function startBot() {
 }
 
 function stopBot() {
+  stopDbWatchers();
+  backupDbFiles();
   if (botProcess) {
     try { botProcess.kill(); } catch (e) {}
     botProcess = null;
